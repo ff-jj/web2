@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/infographic.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height: 400px;position:absolute;left: 50px;top: 100px;"></div>
+    <div id="main1" style="width: 600px;height: 400px;position:absolute;left: 750px;top: 100px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main' ),'infographic');
+        var img = new Image(); //新建对象
+        img.src='https://i.postimg.cc/x8C7MZvv/1.png'
+//图片的地址
+option = {
+backgroundColor: {
+repeat: 'repeat',
+image: img // 赋值
+},
+          title: {
+            text: '春夏秋冬月份占比'
+          },
+          
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  
+  series: [
+    {
+      name: '月份数',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 4, name: '春' },
+        { value:4, name: '夏' },
+        { value:  4, name: '秋' },
+        { value:  4, name: '冬' }
+      ]
+    }
+  ]
+};
+  
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        var myChart1=echarts.init(document.getElementById('main1' ),'infographic');
+        var img = new Image(); //新建对象
+        img.src='https://i.postimg.cc/c1tLn1m5/4.png'      
+         option1 = {
+          backgroundColor: {
+repeat: 'no-repeat',
+image: img // 赋值
+},
+  title: {
+    text: '春夏秋冬一天平均温度变化'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
+    }
+  },
+  legend: {
+    data: ['春', '夏', '秋', '冬'],
+    left:300,
+    textStyle: {
+      fontSize: 15
+    },
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+      data: ['早', '中', '晚']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      name: '春',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [3, 10, 17]
+    },
+    {
+      name: '夏',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [21, 29, 35]
+    },
+    {
+      name: '秋',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [20,28, 32]
+    },
+    {
+      name: '冬',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [4, 12, 18]
+    }
+  ]
+};
+        myChart1.setOption(option1);
+    </script>
+</body>
+</html>
